@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<body>
+    <script>
+
+        // Random selects rock, paper or scissors
+        function computerPlay(){
+            randInt = Math.floor(Math.random() * 3);
+
+            if (randInt == 0) {
+                return "rock";
+            } else if (randInt == 1) {
+                return "paper";
+            } else if (randInt == 2) {
+                return "scissors";
+            }
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            playerSelection = playerSelection.toLowerCase()
+            if (playerSelection == computerSelection) {
+                return "You both played " + computerSelection +". It is a draw."; 
+
+            } else if ((playerSelection == "rock" && computerSelection == "scissors") ||
+                        (playerSelection == "scissors" && computerSelection == "paper") ||
+                        (playerSelection == "paper"  && computerSelection == "rock")) {
+                return "You win! The computer played " + computerSelection + ".";
+
+            } else {
+                return "You lose! The computer played " + computerSelection + ".";
+            }
+        }
+
+        function game() {
+            for (i = 0; i < 5; i++) {
+                result = playRound(prompt("choose"), computerPlay())
+                console.log(result)
+            }
+        }
+    </script>
+</body>
